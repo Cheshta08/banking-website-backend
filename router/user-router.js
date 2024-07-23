@@ -268,10 +268,10 @@ router.get('/user/:id/balance', async (req, res) => {
     }
 
     // Extract initial_balance and balance from user object
-    const { initial_balance, balance, email } = user;
+    const { initial_balance, balance, contact } = user;
 
     // Send initial_balance and balance to the frontend
-    res.json({ initial_balance, balance, email });
+    res.json({ initial_balance, balance, email:contact.email });
 
   } catch (error) {
     console.error('Error fetching user balance:', error);
@@ -282,6 +282,7 @@ router.get('/user/:id/balance', async (req, res) => {
 
 router.post('/send-statement', upload.single('pdfFile'), async (req, res) => {
   const { to, subject, text } = req.body;
+  console.log(req.body);
   const pdfFile = req.file;
 
   if (!pdfFile) {
