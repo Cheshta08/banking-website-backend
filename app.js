@@ -8,7 +8,7 @@ const connectDB=require('./db/connect');
 const router=require("./router/user-router")
 
 const corsOptions={
-    origin:"http://localhost:3000",
+    origin:"https://banking-website-nine.vercel.app",
     methods:"GET,POST,PUT,DELETE,PATCH",
     credentials:true,
 }
